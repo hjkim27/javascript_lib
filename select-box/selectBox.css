@@ -1,0 +1,103 @@
+/* custom select div css*/
+.custom-select {
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    position: relative; /* 기준점 */
+}
+
+/* START:select-icon -------------------- */
+.custom-select .selected:not(.option) {
+    border: 1px solid #d5d5d5;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.custom-select .select-icon {
+    margin-left: 8px;
+    font-size: 0.8rem;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.custom-select .select-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* END:select-icon ---------------------- */
+
+/* START:option frame ------------------- */
+.custom-select .options {
+    display: none;
+    position: absolute; /* 떠 있게 */
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #efefef;
+    border-top: none;
+    z-index: 999; /* 다른 요소 위로 */
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.custom-select .options.open-up { /* options 위로 열기 */
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.custom-select .options.open-down { /* options 아래로 열기 */
+    top: 100%;
+    bottom: auto;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.custom-select .options-inner {
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* END:option frame --------------------- */
+
+/* START:option ------------------------- */
+.custom-select .options-inner.option-checkbox .option { /* checkbox 를 포함한 option 일 경우 */
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+    line-height: var(--font-size-text);
+}
+
+.custom-select .option {
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.custom-select .option > label {
+    width: 100%;
+}
+
+.custom-select .option.selected {
+    background-color: #F2F3F37F;
+}
+
+.custom-select .option:hover {
+    background-color: #ddd;
+}
+
+/* END:option --------------------------- */
+
+/* START:option button ------------------ */
+.custom-select .options-button {
+    margin-top: 10px;
+}
+
+/* END:option button -------------------- */
